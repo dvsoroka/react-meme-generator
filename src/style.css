@@ -1,0 +1,176 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Karla", sans-serif;
+    margin: 0;
+
+ /*   padding: 30px;
+    background-color: whitesmoke;  // used for example onClick and onMouseOver App  
+*/
+}
+
+main {
+    padding: 36px
+}
+
+.header {
+    padding: 20px;
+    color: white;
+    background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+    width: 99vw;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 3px 5px gray;
+    /* Header background 
+width: 550px;*/
+
+}
+.header--image {
+    height: 100%;       /* to fit within boundaries of its parent */ 
+ /*   width: 31px;  */ 
+    margin-right: 6px
+}
+    
+    
+.header--title {
+    
+    margin-right: auto;         /* to push the sipling to the right */
+    font-size: 1.25rem;
+    letter-spacing: -0.1em;
+    }
+    
+.header--project  {
+    margin-right: 16px;
+    font-size: .75rem;
+        
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    line-height: 15px;
+}
+    
+.input--fields {
+    margin: 36px;
+    display: flex;
+    align-items: center;
+}
+ 
+.input--field {
+    padding: 10px;
+    width: 230px;
+    height: 35px;
+    border: 1px solid #D5D4D8;
+    border-radius: 5px;
+    font-family: 'Karla';
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #0D0D0D;  
+}
+
+.form--submit {
+    padding: 20px;
+    color: white;
+    background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+    width: 85vw;
+    min-width: 70%;
+    
+    padding: 10px;
+    
+    height: 40px;
+    border: 1px solid #D5D4D8;
+    border-radius: 5px;
+    font-family: 'Karla';
+    font-weight: 700;
+    font-size: 16px;
+    
+    color: white;  
+    margin: 2px 36px;
+    letter-spacing: -0.1em;
+}
+
+.form {
+    display:grid;
+    grid-template: 40px 40px / 1fr 1fr;
+    gap: 17px;
+}
+
+.form--input {
+    font-family: "Karla", sans-serif;
+    border-radius: 5px;
+    border: 1px solid #D5D4D8;
+    text-indent: 11px;
+}
+
+.form--button {
+    grid-column: 1 / -1;
+    font-family: "Karla", sans-serif;
+    border-radius: 5px;
+    background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container > img {
+    width: 100%;
+    border-radius: 10px;
+    transition: filter .1s ease-in-out;
+}
+
+.container > img:hover {
+    filter: brightness(50%);
+}
+
+.container > button {
+    width: 100%;
+    border-radius: 10px;
+    padding: 1rem;
+    border: 2px solid lightgray;
+    background-color: white;
+    cursor: pointer;
+    margin-top: 20px;
+    font-family: 'Karla', sans-serif;
+    font-size: 1.3rem;
+}
+
+
+body {
+    background-color: #70B85D;
+    color: white;
+    padding: 20px;
+    font-family: 'Karla', sans-serif;
+    font-size: 1.3rem;
+}
+
+button {
+    width: 100%;
+    background-color: transparent;
+    padding: 1rem;
+    color: white;
+    border: 2px solid white;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Karla', sans-serif;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: #FFFEF1;
+    color: #2C5E2E;
+}
+
+button:focus {
+    outline: 0;
+}  
