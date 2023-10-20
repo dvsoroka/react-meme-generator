@@ -145,7 +145,11 @@ width: 550px;*/
     font-size: 1.3rem;
 }
 
+.meme--img {
+    padding: 23px;
+}
 
+/* styling for the practical drill for useState()
 body {
     background-color: #70B85D;
     color: white;
@@ -174,3 +178,5 @@ button:hover {
 button:focus {
     outline: 0;
 }  
+
+*/

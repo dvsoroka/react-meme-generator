@@ -1,4 +1,4 @@
-import React from 'react'
+//import React from 'react'
 //import face from '../assets/Troll_Face.png'
 import memesData from "../memesData"
 
@@ -30,41 +30,7 @@ export default function Meme() {
         console.log(url)
 
     }
-
-
-    /**
-     * New Challenge: Save the random meme URL in state
-     * - Create new state called `memeImage` with an
-     *   empty string as default
-     * - When the getMemeImage function is called, update
-     *   the `memeImage` state to be the random chosen
-     *   image URL
-     * - Below the div.form, add an <img /> and set the
-     *   src to the new `memeImage` state you created
-     */
-
-    const [memeImage, setMemeImage] = React.useState("")
-
-    function getMemeImage() {
-        const memesArray = memesData.data.memes
-        const randomNumber = Math.floor(Math.random() * memesArray.length)
-        // memesArray[randomNumber].url  <-- this line is incomplete!
-        const url = memesArray[randomNumber].url
-        console.log(url)
-        setMemeImage(url)
-    }
-
-
-    const [count, setCount] = React.useState(0)
     
-    function add() {        
-        setCount(prevCount => prevCount + 1)
-    }
-
-    function subtract() {
-        setCount((prevCount) => {return prevCount - 1})
-    }
-
     return (
         <main>
 {/*            <form className="form">      We change our <form> element into a <div> element because 
@@ -89,14 +55,13 @@ export default function Meme() {
                     />
                 
                     <button 
-                        onClick={getMemeImage}  //   onClick={getRandomImage}
+                        onClick={getRandomImage} 
                         className="form--button"
                     >
                         Get a new meme image 🖼 
                     </button>
 {/*             </form>          */}
             </div>
-            <img className="meme--img" src={memeImage}></img>  
                   
         </main>
     )

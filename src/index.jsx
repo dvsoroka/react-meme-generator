@@ -1,11 +1,11 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-//import App from './App.jsx'
-import App from './App1.jsx'
+import App from './App.jsx'
+//import App from './App1.jsx'      // here is a practical drill for React.useState()
 // import './index.css'
-//import './style.css'
-import './style1.css'
+import './style.css'
+// import './style1.css'         // here is a styling for the  practical drill for React.useState()
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
