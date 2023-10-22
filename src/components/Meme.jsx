@@ -46,12 +46,15 @@ export default function Meme() {
     const [memeImage, setMemeImage] = React.useState("")
 
     function getMemeImage() {
+
+        
         const memesArray = memesData.data.memes
         const randomNumber = Math.floor(Math.random() * memesArray.length)
         // memesArray[randomNumber].url  <-- this line is incomplete!
-        const url = memesArray[randomNumber].url
-        console.log(url)
-        setMemeImage(url)
+        // const url = memesArray[randomNumber].url
+        // console.log(url)
+        // setMemeImage(url)
+        setMemeImage(memesArray[randomNumber].url)
     }
 
 
@@ -96,7 +99,7 @@ export default function Meme() {
                     </button>
 {/*             </form>          */}
             </div>
-            <img className="meme--img" src={memeImage}></img>  
+            <img className="meme--image" src={memeImage || "./src/assets/memeimg.svg"}></img>  
                   
         </main>
     )

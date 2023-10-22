@@ -1,12 +1,13 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.jsx'
+//import App from './App.jsx'
 //import App from './App1.jsx'      // here is a practical drill for React.useState()
+import App from './App2.jsx'      // here is a practical drill #2 for React.useState()
 // import './index.css'
-import './style.css'
+// import './style.css'   //here is the styling for Meme Generator App.jsx
 // import './style1.css'         // here is a styling for the  practical drill for React.useState()
-
+import './style2.css'         // here is a styling for the  practical drill #2 for (Challenge: flipping state back and forth)
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
