@@ -6,13 +6,11 @@ import ReactDOM from 'react-dom/client';
 
 
 //import App from './App2.jsx'      // here is a practical drill #2 for useState() with ternary operator for boolean variable "isGoingOut"
-import App from './App3'
+
 // import './index.css'
  import './style.css'   //here is the styling for Meme Generator App.jsx
 // import './style1.css'         // here is a styling for the  practical drill for React.useState()
 // import './style2.css'         // here is a styling for the  practical drill #2 ./App2.jsx for (Challenge: flipping state back and forth)
-import './style3.css'
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
@@ -34,7 +32,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
  * Spoiler: the page won't update when new things get added
  * to the array!
  
-
+*/
 
 function App() {
 //  const thingsArray = ["Thing 1", "Thing 2"]
@@ -45,7 +43,7 @@ function App() {
      * Challenge: Map over the thingsArray to generate
      * a <p> element for each item and render them on the page
      * below the button
-
+  */ 
     const thingsElements = thingsArray.map(thing => {
         return <p key={thing}>{thing}</p>
       }
@@ -64,7 +62,7 @@ function addItem() {
     let p = document.createElement("p");
     console.log(thingsDiv)
     thingsDiv.append(newThingText, p)
-
+*/
 
   console.log(thingsArray)
 }
@@ -73,7 +71,7 @@ function addItem() {
     <div>
         <button onClick={addItem}>Add Item</button>
 
-         {/* Insert the things here  
+         {/* Insert the things here* */}
          <div id="things">
             {thingsElements}
          </div>
@@ -82,7 +80,6 @@ function addItem() {
 }
 
 
-*/
 
 
 /* 
@@ -183,46 +180,3 @@ function greeting(name) {
 
 greeting("Bob");
 console.log(greeting("Bob"))
-
-/*
-
-// New Version of App for drill "20. Build a Meme Generator | Complex state: arrays" of https://scrimba.com/learn/learnreact/complex-state-arrays-co8f0498bb502fff29cbc8ee5
-// (corresponding YouTube video fragment https://www.youtube.com/watch?v=bMknfKXIFA8 (6:06:38)):
-function App() {
-  /**
-   * Challenge: Convert the code below to use an array
-   * held in state instead of a local variable. Initialize 
-   * the state array with the same 2 items below
-   * 
-   * Don't worry about fixing `addItem` quite yet.
-   
-//  const thingsArray = ["Thing 1", "Thing 2"]
-  const [thingsArray, setThingsArray] = React.useState(["Thing 1", "Thing 2"])
-  function addItem() {
-      // We'll work on this next
-      // const newThingText = `Thing ${thingsArray.length + 1}`
-      // thingsArray.push(newThingText)    // wrong! Because we should never ever directly modify our state, while this will modify thingsArray which is the the initial state because .push() is a "destructive function" which modifies the original array 
-      // document.getElementById('things')
-      // console.log(thingsArray)
-      
-      // setThingsArray(prevState => [...prevState, newThingText])
-        setThingsArray(prevThingsArray => {
-          return [...prevThingsArray, `Thing ${prevThingsArray.length + 1}`]
-        })
-
-  }
-  
-  const thingsElements = thingsArray.map(thing => <p key={thing}>{thing}</p>)
-  
-  return (
-      <div>
-          <button onClick={addItem}>Add Item</button>
-          <div id='things'>
-          {thingsElements}
-          </div>
-      </div>
-  )
-}
-
-
-*/

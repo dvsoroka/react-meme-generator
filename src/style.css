@@ -152,7 +152,7 @@ width: 550px;*/
 
 
 
-/* styling for the practical drill for useState()
+/* styling for the useState() practical drill of Adding Item from array of thingsArray = ["Thing 1", "Thing 2"]        */
 body {
     background-color: #70B85D;
     color: white;
@@ -182,4 +182,3 @@ button:focus {
     outline: 0;
 }  
 
-*/

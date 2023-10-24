@@ -3,7 +3,7 @@ import React from "react"
 
 
 export default function App() {
-    /**
+    /** Challenge: flipping state back and forth
      * Challenge: 
      * - Initialize state for `isGoingOut` as a boolean
      * - Make it so clicking the div.state--value flips that
