@@ -8,15 +8,21 @@ import ReactDOM from 'react-dom/client';
 
 
 //import App from './App2.jsx'      // here is a practical drill #2 for useState() with ternary operator for boolean variable "isGoingOut"
-//import App from './App3'        // practical drill #3 https://scrimba.com/learn/learnreact/complex-state-updating-state-objects-cJLgWJSN
- import App from './App4'
+import App from './App3'        // practical drill #3 https://scrimba.com/learn/learnreact/complex-state-updating-state-objects-cJLgWJSN
+                                // and practical drill #5 (Setting state from child components) https://scrimba.com/learn/learnreact/setting-state-from-child-components-co5104ccd8360769343dc8e51
+
+
+// import App from './App4'         // Passing state as props (practical drill #4)  https://scrimba.com/learn/learnreact/passing-state-as-props-co7444d9daf79f8f39a8ebef4
+
+//
+
 
 // import './index.css'
  import './style.css'   //here is the styling for Meme Generator App.jsx
 // import './style1.css'         // here is a styling for the  practical drill for React.useState()
 // import './style2.css'         // here is a styling for the  practical drill #2 ./App2.jsx for (Challenge: flipping state back and forth)
-//import './style3.css'
-import './style4.css'
+import './style3.css'
+//import './style4.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
