@@ -13,9 +13,9 @@ export default function App() {
     }
     
     console.log("App component rendered")
-    
+
     /**
-     * Challenge:
+     * Challenge (Passing state as props):
      * - Create a new component named Count
      *    - It should receive a prop called `number`, whose value
      *      is the current value of our count
