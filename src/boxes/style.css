@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+
+}
+
+/*
+.boxes > div {
+    margin: 10px;
+    padding: 8px;
+    height: 33px;
+    width: 33px;
+    border: solid black 2px ;
+   
+    background-color: blueviolet;
+}
+
+*/
+
+.box {
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+    display: inline-block;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    border-radius: 5px;
+}
+
+.my--box {
+    margin: 10px;
+    height: 4rem;
+    width: 6rem;
+    border: solid black 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mySquares--container{
+    padding: 2rem;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /*Not affect*/
+}
