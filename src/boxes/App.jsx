@@ -1,6 +1,7 @@
 import React from "react"
 import boxes from "./boxes"
 import myBoxes from "./myBoxes"
+import Box from "./Box"
 
 export default function App(props) {
     /**
@@ -12,12 +13,20 @@ export default function App(props) {
      *    (Don't worry about using the "on" property yet)
      */
 
+
+    /**
+     * Challenge part 2:
+     * 1. Create a separate component called "Box" and
+     *    replace the `div` above with our <Box /> components
+     * 2. Pass the Box component a prop called `on` with the
+     *    value of the same name from the `boxes` objects
+     * 3. In the Box component, apply dynamic styles to determine
+     *    the backgroundColor of the box. If it's `on`, set the
+     *    backgroundColor to "#222222". If off, set it to "none"
+     */
     const [squares, setSquares] = React.useState(boxes)
 
-    const [mySquares, setMySquares] = React.useState(myBoxes)
- //   document.getElementById("something").style.backgroundColor = "green"
-
-    console.log(props.darkMode)
+    const [mySquares, setMySquares] = React.useState(myBoxes)    
     
     // Challenge: use a ternary to determine the backgroundColor.
     // If darkMode is true, set it to "#222222"
@@ -28,21 +37,33 @@ export default function App(props) {
     // const styles = {
     //     backgroundColor: mode
     // }
+    console.log (squares.length % 2)
+    let reminder = squares.length % 2
 
     const styles = {
-        backgroundColor: props.darkMode ? "#222222" : "#cccccc"
-//      backgroundColor: props.darkMode ? "black" : "lightgray"
-//      backgroundColor: "black" 
+        backgroundColor: props.darkMode ? "#222222" : "#cccccc",
+        color: props.darkMode ? "violet" : "darkred",
+ //     backgroundColor: (reminder === 0) ? "orange" : "magenta",
     }
 
     const myStyles = {
-        backgroundColor: props.darkMode ? "ligthblue" : "#87CEEB"
+        backgroundColor: props.darkMode ? "blue" : "#87CEEB"
      }
 
-   
+   /**
+     * Challenge part 2:
+     * 1. Create a separate component called "Box" and
+     *    replace the `div` above with our <Box /> components
+     * 2. Pass the Box component a prop called `on` with the
+     *    value of the same name from the `boxes` objects
+     * 3. In the Box component, apply dynamic styles to determine
+     *    the backgroundColor of the box. If it's `on`, set the
+     *    backgroundColor to "#222222". If off, set it to "none"
+     */
 
     const squareElements = squares.map(square => (
-        <div style={styles} className="box" key={square.id}>{square.id}</div>
+ //       <div style={styles} className="box" key={square.id}>{square.id + 100}</div>
+          <Box key={square.id} on={square.on}  number={square.id}/>
     ))
 
 /*  
@@ -144,6 +165,8 @@ In HTML, for example in index.html, I can add an attribute called "style" and in
 
 */
 
+
+
     const mySquareElements = mySquares.map(item => (
         <div style={{backgroundColor: item.color}} className="my--box" key={item.id}>{item.text}</div>
     ))
@@ -155,52 +178,15 @@ In HTML, for example in index.html, I can add an attribute called "style" and in
 
     const boxesElements = boxesArray.map(item => {
         return <div key={item.id}>{item.id}</div>
-    }) 
-
-    const [thingsArray, setThings] = React.useState(["Thing 1", "Thing 2"])  
-  
-
-  /*
-     * Challenge: Map over the thingsArray to generate
-     * a <p> element for each item and render them on the page
-     * below the button
-  */ 
-    const thingsElements = thingsArray.map(thing => {
-        return <p key={thing}>{thing}</p>
-      }
-    )
-
-    console.log(thingsElements)
-    console.log(boxesElements)
+    })   
 
     return (
         <main>
-{/**         <h1>Boxes will go here</h1>         */}
-{/**         <div className="boxes">             */}
-{/**            {boxesElements}                  */}  
                 {squareElements}
-        <div className="mySquares--container" style={myStyles}>  
 
- {/**  from https://www.youtube.com/watch?v=bMknfKXIFA8 (3:35:02)
-  * 
-  * export default function Joke(props) {
-  *   return (
-  *     <div>
-  *       {props.setup && <h3>Setup: {props.setup}</h3>}
-  *   
-  *   another way:
-  *   
-  *       <h3 style={{display: props.setup ? "block" : "none"}}> Setup: {props.setup}</h3>
-  *       <p>Punchline: {props.punchline}</p>
-  *       <hr />
-  *     </div>
-  *   )
-  * }
-  *   
-  * */}        
+            <div className="mySquares--container" style={myStyles}>   
                 {mySquareElements}
-        </div>
-{/**         </div>          */}
+            </div>
             
         </main>
     )
