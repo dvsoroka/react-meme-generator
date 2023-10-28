@@ -18,22 +18,35 @@ export default function Box(props) {
      * 
      * Goal: clicking each box should toggle it on and off.
      */
-    let switcher = props.on
+    
 
-    const [isOn, setIsOn] = React.useState(switcher)
+ // We initialize the new state in each one of our box components and set its initial value to the incoming "props.on" value
+ // one benefit in doing this way is the simplicity and allowing each box  to  then update its own state 
+ // (by doing so automatically every instance of our <Box /> component will also have the ability to update its own state).
+ // So I'll initaializa some new state we'll call it "on" and it will also receive our setter function "setOn" 
+ // by calling React.useState(). The initial value should be determined by looking at props.on
+    const [on, setOn] = React.useState(props.on)
 
-    console.log("switcher: ", isOn)
-
+// And we update our styles to not look at props.on anymore, but to look at my new state value of "on"
     const styles = {
-        backgroundColor: isOn ? "#222222" : "transparent",
+        backgroundColor: on ? "#222222" : "transparent",
     }
 
-    function  ChangeColor() {
-        setIsOn(prevState => !prevState)
+// and that way when I make a function, let's call it "toggle()" and it calls setOn() looking at the 
+// previous verion of "on" and simply giving me the opposite of whatever it was 
+
+    function toggle() {
+        setOn(prevOn => !prevOn)
     }
 
         
     return (
-            <div  onClick={ChangeColor}  className="box" style={styles}>Box #{props.number}</div> 
+            <div  onClick={toggle}  className="box" style={styles}>Box #{props.number}</div> 
     )
 }
+
+// What we've done is we've given each of these boxes its own value of state.
+// So basically we've given it the ability to control itself, we've given it the control over its own value.
+
+//  However the general consensus is that if you find youself initializing state by using the incoming value of prop there's 
+// probably a better vay to do this.
