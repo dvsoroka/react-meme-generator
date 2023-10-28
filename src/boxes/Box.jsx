@@ -9,7 +9,7 @@ export default function Box(props) {
      */
 
     /**
-     * Challenge 3: Create state controlling whether
+     * Challenge 3.1 (local state): Create state controlling whether
      * this box is "on" or "off". Use the incoming
      * `props.on` to determine the initial state.
      * 
@@ -20,7 +20,7 @@ export default function Box(props) {
      */
     
 
- // We initialize the new state in each one of our box components and set its initial value to the incoming "props.on" value
+ // We initialize the new (local) state in each one of our box components and set its initial value to the incoming "props.on" value
  // one benefit in doing this way is the simplicity and allowing each box  to  then update its own state 
  // (by doing so automatically every instance of our <Box /> component will also have the ability to update its own state).
  // So I'll initaializa some new state we'll call it "on" and it will also receive our setter function "setOn" 
@@ -48,5 +48,12 @@ export default function Box(props) {
 // What we've done is we've given each of these boxes its own value of state.
 // So basically we've given it the ability to control itself, we've given it the control over its own value.
 
-//  However the general consensus is that if you find youself initializing state by using the incoming value of prop there's 
-// probably a better vay to do this.
+//  However the general consensus is that if you find youself initializing state by using the incoming value of
+// some prop there's probably a better vay to do this.
+//  What we did is we created new state inside of each of our <Box /> components and initioalized that state based on the 
+// incoming prop of "on" and it turns out there's actually a name for when you crate state that is initialized by incoming props
+// and it's called "derived state". It turns out that you probably don't need derived state; this is an article that was written
+// in 2018 (https://legacy.reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html)
+// It turns out that there can be some weirdness that happens if you pass a prop to a component and then just take that prop and
+// set state based on that prop. If you think about it in App.js we actually created some state in 
+// App.js   to maintain 
