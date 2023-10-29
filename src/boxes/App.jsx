@@ -118,13 +118,20 @@ export default function App(props) {
   
 
     const squareElements = squares.map(square => (
-
+/*
           <Box 
             key={square.id}
             id={square.id} 
             on={square.on}
             toggle={toggle}  
   
+          />
+*/
+// the above <Box /> component invocation may be rewritten using closure:
+          <Box 
+            key={square.id}
+            on={square.on}
+            toggle={() => toggle(square.id)}
           />
     ))
 

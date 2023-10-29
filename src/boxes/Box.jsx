@@ -15,7 +15,13 @@ export default function Box(props) {
                 style={styles}
 //              onClick={(event) => props.toggle(props.id)}
 //              onClick={(e) => props.toggle(props.id)}
-                onClick={() => props.toggle(props.id)}
+
+
+
+//                onClick={() => props.toggle(props.id)}    // if we use the closure in App.js when invoking <Box /> component 
+                                                            // we change this line to thr following:
+
+                  onClick={props.toggle}
 
 
             >              
