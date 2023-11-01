@@ -17,7 +17,7 @@ import ReactDOM from 'react-dom/client';
 // import App from './App6'        // practical drill #6 (Passing data around) https://scrimba.com/learn/learnreact/passing-data-around-coc1c4e8db27909ac7f804244
 
 
-import App from './boxes/App_fin'      // Boxes challenge part 1
+import App from './boxes/App_fin2'      // Boxes challenge part 1
 
 // import './index.css'
 // import './style.css'   //here is the styling for Meme Generator App.jsx
@@ -33,7 +33,7 @@ import './boxes/style.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App darkMode={false}/>
+    <App darkMode={true}/>
 {/*    <App />   */}
   </React.StrictMode>,
 )
