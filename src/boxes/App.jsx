@@ -17,11 +17,11 @@ export default function App(props) {
     function toggle(id) {
       console.log(id)
 
-        setSquares(prevSquares => {
-            return prevSquares.map((square) => {
-                return square.id === id ? {...square, on: !square.on} : square
-            })
-        })
+      setSquares(prevSquares => {
+          return prevSquares.map(square => {
+              return square.id === id ? {...square, on: !square.on} : square
+          })
+      })
     }
  //     console.log(id)
       /**
