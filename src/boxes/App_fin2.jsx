@@ -10,7 +10,7 @@ export default function App(props) {
     function toggle(id) {
 
         setSquares(prevSquares => { 
-            return  prevSquares.map(square => square.id === id? {...square, on: !square.on}: square) })
+            return prevSquares.map(square => square.id === id ? {...square, on: !square.on} : square) })
         
     }
 
