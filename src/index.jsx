@@ -17,9 +17,11 @@ import ReactDOM from 'react-dom/client';
 // import App from './App6'        // practical drill #6 (Passing data around) https://scrimba.com/learn/learnreact/passing-data-around-coc1c4e8db27909ac7f804244
 
 
-import App from './boxes/App'      // Boxes challenge part 1
+//import App from './boxes/App'      // Boxes challenge part 1
 
-// import './index.css'
+import App from './forms_examples/App_form1'    // React forms intro https://scrimba.com/learn/learnreact/react-forms-intro-co2774b5e9623a1cad018bc49
+
+//  import './index.css'
 // import './style.css'   //here is the styling for Meme Generator App.jsx
 
 
@@ -29,7 +31,9 @@ import App from './boxes/App'      // Boxes challenge part 1
 //import './style4.css'
 
 // import './style6.css' 
-import './boxes/style.css'   
+
+// import './boxes/style.css'   // here is the styling for Boxes challenge
+ import './forms_examples/style.css'    //here is the styling for React forms intro
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
