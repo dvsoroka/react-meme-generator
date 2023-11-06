@@ -43,7 +43,6 @@ to determine which property of that state object we should be updating.
                                     // the property name in the state that we're saving. And now I have access to event.target.name
                                     // So we have access to the property of STATE that we want to change and we still have access to event.target.value 
                                     // which is the value that we want to change it to. Now we have everything we need to call setFormData() and update our object correctly 
-                value={formData.firstName}
             />                              
 
             <input
@@ -51,7 +50,6 @@ to determine which property of that state object we should be updating.
                 placeholder="Last Name"
                 onChange={handleChange}
                 name="lastName"
-                value={formData.lastName}
             />
 
             <input
@@ -59,7 +57,6 @@ to determine which property of that state object we should be updating.
                 placeholder="Enter your email"
                 onChange={handleChange}
                 name="email"        // this name exactly matches the name that we chose in our state object
-                value={formData.email}
             />
         </form>
     )
