@@ -50,4 +50,4 @@ console.log(temp);
 
 thermos.temperature = 26;
  temp = thermos.temperature;
- console.log(temp);
+ console.log(temp); //
