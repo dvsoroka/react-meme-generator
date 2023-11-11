@@ -59,3 +59,26 @@ console.log(add5(2)) // logs 7
 // variables that were in scope at the time the closure was made. Here, add5 is a reference to the resulting function, created 
 // when the makeAdding function is executed, thus it has access to the lexical environment of the resulting function, which 
 // contains the first variable, making it available for use, rather than removing it from memory for being out of scope.
+
+
+function makeCounter() {
+  let number = 0;
+  function counter() {
+    number +=1;
+    console.log(number);
+  }
+  
+  return counter;
+}
+
+const counter1 = makeCounter();
+counter1();
+counter1();
+counter1();
+
+
+const counter2 = makeCounter();
+counter2();
+counter2();
+counter2();
+counter2();

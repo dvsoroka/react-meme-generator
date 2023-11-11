@@ -1,7 +1,9 @@
+// Forms with Controlled Components https://legacy.reactjs.org/docs/forms.html#controlled-components
+
 import React from "react"
 
 export default function Form() {
-//  const [firstName, setFirstName] = React.useState("")        // First of all we need some state to haold the current data that's typed into our input I will set an empty string "" as the default because I expect my input to be an empty box in the begining.  and now what I need to do is listen for any changes that happen to this input:
+//  const [firstName, setFirstName] = React.useState("")        // First of all we need some state to hold the current data that's typed into our input I will set an empty string "" as the default because I expect my input to be an empty box in the begining.  and now what I need to do is listen for any changes that happen to this input:
 /* 
 But what if we have 20 or more input boxes? Its not convenient to have a separate change function for each one of those and a separate piece of state 
 for each one of those. We'll learn how to combine our state into an object and how to use the event parameter that we're receiving in our event handlers
