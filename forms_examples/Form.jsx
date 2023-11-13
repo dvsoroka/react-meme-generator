@@ -19,11 +19,12 @@ to determine which property of that state object we should be updating.
             email: "", 
             comments: "",
             isFriendly: true,
-            employment: ""
+            employment: "",
+            favColor: ""
         }
     )
 
-    console.log(formData.employment)
+//  console.log(formData.favColor)
 
     function handleChange(event) {              // Before when we were simply updating a STRING we didn't care about what the previous version of 
 //      console.log(event.target.name)          // that string was because we were just going to overwrite it with whatever was in the input box.
@@ -42,9 +43,19 @@ to determine which property of that state object we should be updating.
         })
     }
     
-    
+    function handleSubmit(event) {
+        event.preventDefault()      // Preventing default means that it won't refresh our and essentially rerender our App with all the default values in state
+                                // So event.preventDefault() just stops all of that from happening and makes it so we can then run code the way we actually want.
+    //without preventDefault we'll get in the status (URL) string like that:
+    // index.html?firstName=asdasd&lastName=asdasd&email=&comments=&isFriendly=on&favColor=red
+    // or
+    // http://localhost:5173/?firstName=Enot&lastName=Racoon&email=Enot%40racoon.com&comments=Commented&isFriendly=on&employment=full-time&favColor=yellow
+        //submitToApi(formData)
+        console.log(formData)
+
+    }
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <input
                 type="text"
                 placeholder="First Name"
@@ -147,6 +158,30 @@ to determine which property of that state object we should be updating.
                 
             </fieldset>
             <br />
+            
+            <label htmlFor="favColor">What is your favorite color?</label>
+            <br />
+            <select         // https://scrimba.com/learn/learnreact/forms-in-react-select-option-co83b466d859cf1d6c4b3efaf
+                id="favColor"
+                value={formData.favColor}
+                onChange={handleChange}
+                name="favColor"
+            >
+                <option value="">--Choose--</option>
+                <option value="red">Red</option>
+                <option value="orange">Orange</option>
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="indigo">Indigo</option>
+                <option value="violet">Violet</option>
+            </select>
+            <br />
+            <br />
+  {/*           <input type="submit" value="Sent it in" />           in HTML it "submit was just one of the <input>s */}
+            <br />
+            <button>Submit</button>            {/*  in HTML 5  the <button> tag with the default behaviour of "submit" was introduced (if it is placed inside the <form> ) */}
+            <button type="button">Button(NoSubmit)</button>         {/*  in HTML 5 if you don't want to submit, then put the type="button   */}
         </form>
     )
 }
