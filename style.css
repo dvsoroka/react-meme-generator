@@ -3,11 +3,12 @@
 }
 
 body {
+    font-family:  sans-serif;
     margin: 0;
     padding: 20px;
 }
 
-
+/*
 input {
     margin-bottom: 15px;
     height: 30px;
@@ -16,7 +17,7 @@ input {
     border-radius: 5px;
     display: block;
 }
-
+*/
 
 .input {
     border-radius: 100px;
@@ -25,6 +26,29 @@ input {
     display: block;
     height: 2rem;
     text-indent: 10px;
+}
+
+
+input[type="text"], input[type="email"] {
+    margin-bottom: 15px;
+    height: 30px;
+    text-indent: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    display: block;
+}
+
+input[type="checkbox"] {
+    margin-right: 0.75rem;
+}
+
+
+textarea {
+    margin-bottom: 15px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    display: block;
+    
 }
 
 
