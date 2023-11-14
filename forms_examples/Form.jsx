@@ -44,18 +44,21 @@ to determine which property of that state object we should be updating.
     }
     
     function handleSubmit(event) {
-        event.preventDefault()      // Preventing default means that it won't refresh our and essentially rerender our App with all the default values in state
-                                // So event.preventDefault() just stops all of that from happening and makes it so we can then run code the way we actually want.
-    //without preventDefault we'll get in the status (URL) string like that:
+        event.preventDefault()      // Preventing default means that it won't refresh ourpage and essentially rerender our App with all the default values in state
+                                // So event.preventDefault() just stops all of that from happening and makes it so we can then run code the way we actually want to.
+    //without preventDefault when clicked "submit" we'll update the fields to the default "blanks" and get in the status (URL) string like that:
     // index.html?firstName=asdasd&lastName=asdasd&email=&comments=&isFriendly=on&favColor=red
     // or
     // http://localhost:5173/?firstName=Enot&lastName=Racoon&email=Enot%40racoon.com&comments=Commented&isFriendly=on&employment=full-time&favColor=yellow
-        //submitToApi(formData)
+    // and this is not we want to do     
+
+        //submitToApi(formData)         // If we pretended that we have some form af submitToApi() function so we coul pass our formData object to that function
         console.log(formData)
 
     }
     return (
-        <form onSubmit={handleSubmit}>
+    //  <form method="POST" action="somePhp.php">  // instead if that we are going to set onSubmit handler: the function handleSubmit()
+         <form onSubmit={handleSubmit}>   
             <input
                 type="text"
                 placeholder="First Name"
@@ -181,7 +184,8 @@ to determine which property of that state object we should be updating.
   {/*           <input type="submit" value="Sent it in" />           in HTML it "submit was just one of the <input>s */}
             <br />
             <button>Submit</button>            {/*  in HTML 5  the <button> tag with the default behaviour of "submit" was introduced (if it is placed inside the <form> ) */}
-            <button type="button">Button(NoSubmit)</button>         {/*  in HTML 5 if you don't want to submit, then put the type="button   */}
+            <button type="button">Button(NoSubmit)</button>         {/*  in HTML 5 if you don't want to submit, then put the type="button" (the defaoult type is "submit")   */}
+                                                                    {/*  https://scrimba.com/learn/learnreact/forms-in-react-submitting-the-form-coe43436db60b0c21a1cca067   */}
         </form>
     )
 }
