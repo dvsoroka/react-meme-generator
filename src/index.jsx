@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-//import App from './App.jsx'
+import App from './App.jsx'
 
 //import App from './App1.jsx'      // here is a practical drill for React.useState()
 
@@ -19,7 +19,7 @@ import ReactDOM from 'react-dom/client';
 
 //import App from './boxes/App'      // Boxes challenge part 1
 
-import App from './forms_examples/App_form1'    // React forms intro https://scrimba.com/learn/learnreact/react-forms-intro-co2774b5e9623a1cad018bc49
+// import App from '../forms_examples/Form'   // React forms intro https://scrimba.com/learn/learnreact/react-forms-intro-co2774b5e9623a1cad018bc49
 
 //  import './index.css'
 // import './style.css'   //here is the styling for Meme Generator App.jsx
@@ -33,7 +33,7 @@ import App from './forms_examples/App_form1'    // React forms intro https://scr
 // import './style6.css' 
 
 // import './boxes/style.css'   // here is the styling for Boxes challenge
- import './forms_examples/style.css'    //here is the styling for React forms intro
+ import './style.css'    //here is the styling for React forms intro
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

@@ -3,35 +3,29 @@ import React from 'react'
 import memesData from "../memesData"
 
 export default function Meme() {
-     /**
-     * Challenge: Update our state to save the meme-related
-     * data as an object called `meme`. It should have the
-     * following 3 properties:
-     * topText, bottomText, randomImage.
-     * 
-     * The 2 text states can default to empty strings for now,
-     * amd randomImage should default to "http://i.imgflip.com/1bij.jpg"
-     * 
-     * Next, create a new state variable called `allMemeImages`
-     * which will default to `memesData`, which we imported above
-     * 
-     * Lastly, update the `getMemeImage` function and the markup 
-     * to reflect our newly reformed state object and array in the
-     * correct way.
-     */
-
 //   const [memeImage, setMemeImage] = React.useState("http://i.imgflip.com/1bij.jpg")
-
+    /**
+     * Challenge #52  https://scrimba.com/learn/learnreact/project-add-text-to-image-co9dd4288bcdb0c0cfe7a2d9c: 
+     * 1. Set up the text inputs to save to
+     *    the `topText` and `bottomText` state variables.
+     * 2. Replace the hard-coded text on the image with
+     *    the text being saved to state.
+     */
      const [meme, setMeme] = React.useState({
-        topText: "One Does",
-        bottomText: "Not Simply",
+        topText: "",
+        bottomText: "",
         randomImage: "http://i.imgflip.com/1bij.jpg"
     })
-
     const [allMemeImages, setAllMemeImages] = React.useState(memesData)
     
+    function handleChange(event) {
+        const {name, value} = event.target
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            [name]: value   // We use the computed property name in brackets [name]
+        }))
 
-
+    }
 
      function getMemeImage() {
         const memesArray = allMemeImages.data.memes
@@ -40,80 +34,15 @@ export default function Meme() {
 //        setMemeImage(memesArray[randomNumber].url)
         setMeme(prevState => ({
             ...prevState,
-            topText: memesArray[randomNumber].name,
-            bottomText: "",
+//          topText: memesArray[randomNumber].name,
+//          bottomText: "",
             randomImage: url
         }))
         console.log(meme)
         
     }
 
-    const [contact, setContact] = React.useState({
-        firstName: "John",
-        lastName: "Doe",
-        phone: "+1 (719) 555-1212",
-        email: "itsmyrealname@example.com",
-        isFavorite: false
-    })
-
     
-    /**
-     * Challenge: Get a random image from the `memesData` array
-     * when the "new meme image" button is clicked.
-     * 
-     * Log the URL of the image to the console. (Don't worry
-     * about displaying the image yet)
-     * 
-     
-    let memes = memesData.data.memes
-    let number = Math.floor(Math.random() * (memes.length+1));
-    console.log(number)
-    let meme = memes[number]
-    let url = meme.url
-    alert(url);
-    console.log({url});
-
-    */
-/* Previous Attmpt: 
-
-    let memes = memesData.data.memes
-    function getRandomImage() {
-        
-        let number = Math.floor(Math.random() * (memes.length));
-        console.log(number)
-        let url = memes[number].url
-        console.log(url)
-
-    }
-*/
-
-    /**
-     * New Challenge: Save the random meme URL in state
-     * - Create new state called `memeImage` with an
-     *   empty string as default
-     * - When the getMemeImage function is called, update
-     *   the `memeImage` state to be the random chosen
-     *   image URL
-     * - Below the div.form, add an <img /> and set the
-     *   src to the new `memeImage` state you created
-     */
-
-//My    const [memeImage, setMemeImage] = React.useState("")
-
-/*
-    const [memeImage, setMemeImage] = React.useState("http://i.imgflip.com/1bij.jpg") // with default image
-    function getMemeImage() {
-
-        
-        const memesArray = memesData.data.memes
-        const randomNumber = Math.floor(Math.random() * memesArray.length)
-        // memesArray[randomNumber].url  <-- this line is incomplete!
-        // const url = memesArray[randomNumber].url
-        // console.log(url)
-        // setMemeImage(url)
-        setMemeImage(memesArray[randomNumber].url)
-    }
-*/
 
     const [count, setCount] = React.useState(0)
     
@@ -138,14 +67,20 @@ export default function Meme() {
             <div className="form">
                     <input 
                         type="text" 
-                        placeholder={meme.topText}
-                        className="form--input" 
+                        placeholder="Top text"
+                        className="form--input"
+                        name="topText"
+                        onChange={handleChange}
+                        value={meme.topText}
                     />
                 
                     <input 
                         type="text"
                         placeholder="Bottom text" 
-                        className="form--input"   
+                        className="form--input"
+                        name="bottomText"
+                        onChange={handleChange}
+                        value={meme.bottomText}   
                     />
                 
                     <button 
@@ -156,10 +91,13 @@ export default function Meme() {
                     </button>
 {/*             </form>          */}
             </div>
-{/*            <img src={memeImage} className="meme--image" />          */}
-            <img src={meme.randomImage} className="meme--image" />
-{/*My       <img className="meme--image" src={memeImage || "./src/assets/memeimg.svg"}></img>     */}
-                  
+            <div className="meme">
+{/*             <img src={memeImage} className="meme--image" />          */}
+                <img src={meme.randomImage} className="meme--image" />
+{/*My           <img className="meme--image" src={memeImage || "./src/assets/memeimg.svg"}></img>     */}
+                <h2 className="meme--text top">{meme.topText}</h2>
+                <h2 className="meme--text bottom">{meme.bottomText}</h2>
+            </div>
         </main>
     )
 }
