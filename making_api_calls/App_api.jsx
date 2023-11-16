@@ -32,10 +32,10 @@ export default function App() {
 //      React.useEffect(function() {
         React.useEffect(() => {
         console.log("Effect function ran")
-//         fetch("https://swapi.dev/api/people/1")
-//              .then(res => res.json())
-// //           .then(data => setStarWarsData(data)) 
-//              .then(data => console.log(data))
+        fetch("https://swapi.dev/api/people/1")
+            .then(res => res.json())
+            .then(data => setStarWarsData(data)) 
+//          .then(data => console.log(data))
 
 
 //  })
