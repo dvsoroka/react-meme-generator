@@ -95,6 +95,10 @@ export default function Meme() {
 {/*             <img src={memeImage} className="meme--image" />          */}
                 <img src={meme.randomImage} className="meme--image" />
 {/*My           <img className="meme--image" src={memeImage || "./src/assets/memeimg.svg"}></img>     */}
+{/*                
+                <h2 className="meme--text top">One does not simply</h2>
+                <h2 className="meme--text bottom">Walk into Mordor</h2>
+*/}
                 <h2 className="meme--text top">{meme.topText}</h2>
                 <h2 className="meme--text bottom">{meme.bottomText}</h2>
             </div>
