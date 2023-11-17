@@ -3,7 +3,7 @@ import React from "react"
 export default function App() {
 //  const [data, setData] = React.useState({})
     const [starWarsData, setStarWarsData] = React.useState({})
-    const [count, setCount] = React.useState(0)
+    const [count, setCount] = React.useState(1)
 
     console.log("Component rendered") // We've got an infinite loop in console!  while fetching the data from API  because 
                                         // this fetch("https://swapi.dev/api/people/1") below is kind of living on sort of the top level of our component. 
@@ -27,22 +27,29 @@ export default function App() {
 
 //  React.useEffect(() => {})
 
-
+    /*** https://scrimba.com/learn/learnreact/useeffect-when-to-use-dependencies-co87f48fc9c487d958ddeca4a
+     * Challenge #01: Combine `count` with the request URL
+     * so pressing the "Get Next Character" button will
+     * get a new character from the Star Wars API.
+     * Remember: don't forget to consider the dependencies
+     * array!
+     */
 
 //      React.useEffect(function() {
         React.useEffect(() => {
         console.log("Effect function ran")
-        fetch("https://swapi.dev/api/people/1")
+//#01   fetch("https://swapi.dev/api/people/1")
+        fetch(`https://swapi.dev/api/people/${count}`)
             .then(res => res.json())
             .then(data => setStarWarsData(data)) 
 //          .then(data => console.log(data))
 
 
 //  })
-//  }, [])
+//  }, [])       // It will cause one run of fetch() and even if we hit the "Add button" it will not trigger useEffect() again because we do not watching at "count"  
 //  }, [0])
 //  }, [1])
-    }, [count])  //  [0]  compared to [1] 
+    }, [count])  //  [0]  compared to [1]  It will re-run useEffect() any time "count" changes.
     
     return (
         <div>
