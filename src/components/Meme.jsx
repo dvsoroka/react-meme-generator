@@ -1,6 +1,6 @@
 import React from 'react'
 //import face from '../assets/Troll_Face.png'
-import memesData from "../memesData"
+//#53 import memesData from "../memesData"
 
 export default function Meme() {
 //   const [memeImage, setMemeImage] = React.useState("http://i.imgflip.com/1bij.jpg")
@@ -11,12 +11,44 @@ export default function Meme() {
      * 2. Replace the hard-coded text on the image with
      *    the text being saved to state.
      */
+
+    /**
+     *  https://scrimba.com/learn/learnreact/project-get-memes-from-api-coe9a494f854435f2630f2ce4
+     * 
+     * Challenge #53: 
+     * As soon as the Meme component loads the first time,
+     * make an API call to "https://api.imgflip.com/get_memes".
+     * 
+     * When the data comes in, save just the memes array part
+     * of that data to the `allMemes` state
+     * 
+     * Think about if there are any dependencies that, if they
+     * changed, you'd want to cause to re-run this function.
+     * 
+     * Hint: for now, don't try to use an async/await function.
+     * Instead, use `.then()` blocks to resolve the promises
+     * from using `fetch`. We'll learn why after this challenge.
+     */
      const [meme, setMeme] = React.useState({
         topText: "",
         bottomText: "",
         randomImage: "http://i.imgflip.com/1bij.jpg"
     })
-    const [allMemeImages, setAllMemeImages] = React.useState(memesData)
+//#53    const [allMemeImages, setAllMemeImages] = React.useState(memesData)
+//#53    const [allMemes, setAllMemes] = React.useState(memesData)
+    const [allMemes, setAllMemes] = React.useState([])      // Empty array is assumed as empty box that will filled with our memes as soon as our component loads ( and fetch() request downloads data ) for the first time
+    React.useEffect(() => {
+        console.log("Effect function ran")
+
+        fetch("https://api.imgflip.com/get_memes")
+            .then(res => res.json())
+ //           .then(data => (data.data.memes))
+ //           .then(data => (console.log(data)))
+ //wrong!      .then(data => setAllMemes(data.data.memes)) 
+            .then(data => setAllMemes(data.data.memes))
+    }, []) 
+
+    console.log(allMemes)
     
     function handleChange(event) {
         const {name, value} = event.target
@@ -24,25 +56,35 @@ export default function Meme() {
             ...prevMeme,
             [name]: value   // We use the computed property name in brackets [name]
         }))
-
     }
 
-     function getMemeImage() {
-        const memesArray = allMemeImages.data.memes
-        const randomNumber = Math.floor(Math.random() * memesArray.length)
-        const url = memesArray[randomNumber].url
-//        setMemeImage(memesArray[randomNumber].url)
-        setMeme(prevState => ({
-            ...prevState,
-//          topText: memesArray[randomNumber].name,
-//          bottomText: "",
+//#53      function getMemeImage() {
+//#53         const memesArray = allMemeImages.data.memes
+//#53         const randomNumber = Math.floor(Math.random() * memesArray.length)
+//#53         const url = memesArray[randomNumber].url
+//#53 //        setMemeImage(memesArray[randomNumber].url)
+//#53         setMeme(prevMeme => ({
+//#53             ...prevMeme,
+//#53 //          topText: memesArray[randomNumber].name,
+//#53 //          bottomText: "",
+//#53             randomImage: url
+//#53         }))
+//#53         console.log(meme)       
+//#53     }
+
+    function getMemeImage() {
+//      const memesArray = allMemes.data.memes          // because of we have imported only "memes" array ( when doing .then(data => setAllMemes(data.data.memes)) )
+//        const memesArray = allMemes
+//        const randomNumber = Math.floor(Math.random() * memesArray.length)
+//        const url = memesArray[randomNumber].url     // we can get rid of memesArray and simply use allMemes in the following two lines:
+        const randomNumber = Math.floor(Math.random() * allMemes.length)
+        const url = allMemes[randomNumber].url
+        setMeme(prevMeme => ({
+            ...prevMeme,
             randomImage: url
         }))
-        console.log(meme)
         
-    }
-
-    
+    }    
 
     const [count, setCount] = React.useState(0)
     
