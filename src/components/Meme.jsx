@@ -41,13 +41,23 @@ export default function Meme() {
         console.log("Effect function ran")
 
         fetch("https://api.imgflip.com/get_memes")
-            .then(res => res.json())
+            .then(res => res.json())            //we take the response and parse to javascript object 
  //           .then(data => (data.data.memes))
  //           .then(data => (console.log(data)))
- //wrong!      .then(data => setAllMemes(data.data.memes)) 
-            .then(data => setAllMemes(data.data.memes))
+ //wrong!// but we can rewrite getMemeImage() function      .then(data => setAllMemes(data.data.memes)) 
+               .then(data => setAllMemes(data.data.memes))
     }, []) 
 
+// With async/await it seems could be rewritten as follows:
+/* 
+    React.useEffect(async () => {
+        const res = await fetch("https://api.imgflip.com/get_memes")
+        const data = await res.json()
+        setAllMemes(data.data.memes)
+    }, [])
+
+but this will NOT work!
+*/
     console.log(allMemes)
     
     function handleChange(event) {
