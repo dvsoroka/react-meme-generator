@@ -36,7 +36,9 @@ export default function Meme() {
     })
 //#53    const [allMemeImages, setAllMemeImages] = React.useState(memesData)
 //#53    const [allMemes, setAllMemes] = React.useState(memesData)
+
     const [allMemes, setAllMemes] = React.useState([])      // Empty array is assumed as empty box that will filled with our memes as soon as our component loads ( and fetch() request downloads data ) for the first time
+/*#63
     React.useEffect(() => {
         console.log("Effect function ran")
 
@@ -48,6 +50,7 @@ export default function Meme() {
                .then(data => setAllMemes(data.data.memes))
     }, []) 
 
+#63*/
 // With async/await it seems could be rewritten as follows:
 /* 
     React.useEffect(async () => {
@@ -57,8 +60,33 @@ export default function Meme() {
     }, [])
 
 but this will NOT work!
+We have to rewrite our useEffect that fetches data using async/await as follows:
+( useEffect cleanup function: https://scrimba.com/learn/learnreact/using-an-async-function-inside-useeffect-cw73rRud )
 */
-    console.log(allMemes)
+    /**
+    useEffect takes a function as its parameter. If that function
+    returns something, it needs to be a cleanup function. Otherwise,
+    it should return nothing. If we make it an async function, it
+    automatically retuns a promise instead of a function or nothing.
+    Therefore, if you want to use async operations inside of useEffect,
+    you need to define the function separately inside of the callback
+    function, as seen below:
+    */
+    
+    React.useEffect(() => {
+        async function getMemes() {
+            const res = await fetch("https://api.imgflip.com/get_memes")
+            const data = await res.json()
+            setAllMemes(data.data.memes)
+        }
+        getMemes()
+                                // if we'd put React.useEffect(async () => {}) what would be returned is a promise while
+        return () => {          // this function is interpreted as a useEffect cleanup function so we have to wrap our async function inside
+                                // another callback function as above.           
+        }                       // In our case we won't need to be returning a cleanup function since we 're not setting up anything needs to be cleaned up
+    }, [])
+
+//  console.log(allMemes)
     
     function handleChange(event) {
         const {name, value} = event.target

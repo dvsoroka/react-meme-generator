@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-// import App from './App.jsx'
+ import App from './App.jsx'
 
 //import App from './App1.jsx'      // here is a practical drill for React.useState()
 
@@ -21,10 +21,11 @@ import ReactDOM from 'react-dom/client';
 
 // import App from '../forms_examples/Form'   // React forms intro https://scrimba.com/learn/learnreact/react-forms-intro-co2774b5e9623a1cad018bc49
 
-  //import App from '../making_api_calls/App_api' // Making API calls https://scrimba.com/learn/learnreact/making-api-calls-co9544abfb8036eb9ac767bb2
-  import App from '../window_tracker/App' 
+//import App from '../making_api_calls/App_api' // Making API calls https://scrimba.com/learn/learnreact/making-api-calls-co9544abfb8036eb9ac767bb2
+ // import App from '../window_tracker/App'  // useEffect cleanup function   https://scrimba.com/learn/learnreact/useeffect-cleanup-function-coa6a4c9985b4339f164fe0ab
   //import App from '../Tic-Tac-Toe/App'  // https://react.dev/learn/tutorial-tic-tac-toe
-//  import './index.css'
+
+  import './index.css'
 // import './style.css'   //here is the styling for Meme Generator App.jsx
 
 
@@ -38,7 +39,7 @@ import ReactDOM from 'react-dom/client';
 // import './boxes/style.css'   // here is the styling for Boxes challenge
  
 //import '../making_api_calls/style.css' // styling for API challenge
-import '../window_tracker/style.css'
+//import '../window_tracker/style.css'
  
  // import './style.css'    //here is the styling for React forms intro
 
